@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: rhacm-instance
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource
 spec:
   destination:
     namespace: open-cluster-management

@@ -3,4 +3,6 @@ kind: MultiClusterHub
 metadata:
   namespace: open-cluster-management
   name: multiclusterhub
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource
 spec:
