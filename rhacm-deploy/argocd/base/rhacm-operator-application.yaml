@@ -15,7 +15,7 @@ spec:
       maxDuration: 5m
     limit: 10
   source:
-    path: rhacm-deploy/rhacm-operator/ha
+    path: rhacm-deploy/rhacm-operator/base
     repoURL: https://github.com/sabre1041/rhacm-argocd
     targetRevision: main
   syncPolicy:
