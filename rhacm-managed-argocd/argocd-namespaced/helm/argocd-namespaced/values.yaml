@@ -1,0 +1,7 @@
+
+argocd:
+  managedNamespaces: []
+  namespaces:
+    create: false
+  crd:
+    create: false

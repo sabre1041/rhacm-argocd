@@ -1,0 +1,2 @@
+{{ include "argocd-namespaced.managed.namespaces" . }}
+{{ include "argocd-namespaced.managed.configs" . }}
