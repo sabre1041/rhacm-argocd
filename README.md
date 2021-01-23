@@ -66,3 +66,19 @@ $ oc apply -k rhacm-managed-argocd/argocd-cluster/subscription/
 ```
 
 In a few moments, Argo CD will be provisioned on all clusters with the label `argocd=true`.
+
+### Deployment of Namespace Scoped Argo CD to Red Hat Advanced Cluster Management to Managed Clusters
+
+Red Hat Advanced Cluster Management for Kubernetes can also enforce that each managed cluster be provisioned with a namespace scoped instance of Argo CD to manage the "last mile" configuration of the target cluster. Typical deployments of ArgoCD are managed at a cluster scoped level. However, in many multitenant environments, it may be desired to limit the level of access granted.
+
+The following are a set of assets that make use of Red Hat Advanced Cluster Management for Kubernetes Policies and application capabilities to deploy an instance of Argo CD using a [Helm chart](https://helm.sh/) at a namespace scope.
+
+The associated configurations will deploy a namespaced scope instance of Argo CD on remote clusters with the label `argocd-namespaced=true`.
+
+Argo CD will be installed in a namespace called `managed-argocd-namespaced` and be able to manage resources within its own namespace as well as a namespace called `managed-argocd-namespaced-deploy`.
+
+Execute the following command to apply the resources to the Hub cluster
+
+```
+$ oc apply -k rhacm-managed-argocd/argocd-namespaced/subscription/ 
+```
