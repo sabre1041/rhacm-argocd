@@ -7,5 +7,5 @@ metadata:
     app.kubernetes.io/part-of: argocd
   name: argocd-rbac-cm
   namespace: {{ .Release.Namespace }}
-#data:
-#  policy.default: role:admin
+data:
+  policy.default: role:admin

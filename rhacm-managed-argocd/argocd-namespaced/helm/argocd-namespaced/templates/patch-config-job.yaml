@@ -20,13 +20,13 @@ spec:
               export HOME=/tmp/patcher
               PATCH_CONFIG=$(echo -n "{\"bearerToken\":\"$(oc serviceaccounts get-token argocd-manager)\",\"tlsClientConfig\":{\"insecure\":true}}" | base64 -w0)
               oc patch secret cluster-kubernetes.default.svc-argocd-managed --type='json' -p="[{\"op\" : \"replace\" ,\"path\" : \"/data/config\" ,\"value\" : \"$PATCH_CONFIG\"}]"
-              #ARGOCD_ROUTE=$(oc get routes argocd-server -o jsonpath='{ .spec.host }')
-              #oc annotate sa argocd-dex-server --overwrite serviceaccounts.openshift.io/oauth-redirecturi.argocd=https://$ARGOCD_ROUTE/api/dex/callback
-              #cd $HOME
-              #oc extract cm/argocd-cm
-              #sed -i "s|redirectURI:|redirectURI: https://$ARGOCD_ROUTE/api/dex/callback|g" dex.config
-              #sed -i "s|clientSecret:|clientSecret: $(oc serviceaccounts get-token argocd-dex-server)|g" dex.config
-              #oc create cm argocd-cm --from-file=dex.config --dry-run=client -o yaml | oc apply -f-
+              ARGOCD_ROUTE=$(oc get routes argocd-server -o jsonpath='{ .spec.host }')
+              oc annotate sa argocd-dex-server --overwrite serviceaccounts.openshift.io/oauth-redirecturi.argocd=https://$ARGOCD_ROUTE/api/dex/callback
+              cd $HOME
+              oc extract cm/argocd-cm
+              sed -i "s|redirectURI:|redirectURI: https://$ARGOCD_ROUTE/api/dex/callback|g" dex.config
+              sed -i "s|clientSecret:|clientSecret: $(oc serviceaccounts get-token argocd-dex-server)|g" dex.config
+              oc create cm argocd-cm --from-file=dex.config --from-literal=url=https://$ARGOCD_ROUTE --dry-run=client -o yaml | oc apply -f-
           imagePullPolicy: Always
           name: patch-config
       dnsPolicy: ClusterFirst

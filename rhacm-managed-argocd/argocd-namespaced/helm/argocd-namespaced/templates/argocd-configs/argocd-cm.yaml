@@ -7,15 +7,15 @@ metadata:
     app.kubernetes.io/part-of: argocd
   name: argocd-cm
   namespace: {{ .Release.Namespace }}
-#data:
-#  dex.config: |
-#    connectors:
-#    - config:
-#        clientID: system:serviceaccount:{{ .Release.Namespace }}:argocd-dex-server
-#        clientSecret:
-#        insecureCA: true
-#        issuer: https://kubernetes.default.svc
-#        redirectURI:
-#      id: openshift
-#      name: OpenShift
-#      type: openshift
+data:
+  dex.config: |
+    connectors:
+    - config:
+        clientID: system:serviceaccount:{{ .Release.Namespace }}:argocd-dex-server
+        clientSecret:
+        insecureCA: true
+        issuer: https://kubernetes.default.svc
+        redirectURI:
+      id: openshift
+      name: OpenShift
+      type: openshift
