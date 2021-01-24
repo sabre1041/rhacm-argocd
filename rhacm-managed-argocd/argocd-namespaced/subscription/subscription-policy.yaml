@@ -1,0 +1,14 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: Subscription
+metadata:
+  name: managed-argocd-namespaced-subscription
+  namespace: managed-argocd-namespaced
+  labels:
+    app: managed-argocd-namespaced-policy
+  annotations:
+    apps.open-cluster-management.io/github-path: rhacm-managed-argocd/argocd-namespaced/policies
+    apps.open-cluster-management.io/github-branch: argocd-namespaced
+spec:
+  channel: managed-argocd-namespaced/managed-argocd-namespaced
+  placement:
+    local: true

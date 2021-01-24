@@ -1,0 +1,9 @@
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: Channel
+metadata:
+  name: managed-argocd-namespaced
+  namespace: managed-argocd-namespaced
+spec:
+  type: GitHub
+  pathname: https://github.com/sabre1041/rhacm-argocd.git

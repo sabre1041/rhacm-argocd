@@ -1,0 +1,28 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: Subscription
+metadata:
+  name: managed-argocd-namespaced-argocd-subscription
+  namespace: managed-argocd-namespaced
+  labels:
+    app: managed-argocd-namespaced-argocd
+  annotations:
+    apps.open-cluster-management.io/github-path: rhacm-managed-argocd/argocd-namespaced/helm
+    apps.open-cluster-management.io/github-branch: argocd-namespaced
+spec:
+  channel: managed-argocd-namespaced/managed-argocd-namespaced
+  placement:
+    placementRef:
+      kind: PlacementRule
+      name: placement-policy-managed-argocd-namespaced
+  packageOverrides:
+    - packageName: argocd-namespaced
+      packageAlias: argocd
+      packageOverrides:
+        - path: spec
+          value:
+            argocd:
+              namespaces:
+                create: true
+              managedNamespaces:
+                - managed-argocd-namespaced
+                - managed-argocd-namespaced-deploy

@@ -1,0 +1,8 @@
+---
+resources:
+  - namespace.yaml
+  - channel.yaml
+  - subscription-policy.yaml
+  - application-policy.yaml
+  - subscription-argocd.yaml
+  - application-argocd.yaml
