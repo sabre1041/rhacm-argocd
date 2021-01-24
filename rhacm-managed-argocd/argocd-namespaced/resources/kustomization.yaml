@@ -1,0 +1,5 @@
+---
+bases:
+  - common
+  - argocd-1
+  - argocd-2

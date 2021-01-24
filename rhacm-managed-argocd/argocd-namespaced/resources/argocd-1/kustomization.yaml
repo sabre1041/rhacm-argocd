@@ -1,0 +1,8 @@
+---
+namespace: argocd-1
+
+resources:
+  - namespace.yaml
+  - placementrule.yaml
+  - subscription.yaml
+  - application.yaml

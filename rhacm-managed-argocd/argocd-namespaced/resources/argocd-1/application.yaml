@@ -1,8 +1,7 @@
 apiVersion: app.k8s.io/v1beta1
 kind: Application
 metadata:
-  name: managed-argocd-namespaced-argocd
-  namespace: managed-argocd-namespaced
+  name: argocd-1
 spec:
   componentKinds:
     - group: apps.open-cluster-management.io
@@ -13,4 +12,4 @@ spec:
       - key: app
         operator: In
         values:
-          - managed-argocd-namespaced-argocd
+          - argocd-1
