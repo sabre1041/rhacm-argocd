@@ -9,6 +9,7 @@ The following scenarios are available:
 * [Deployment of Argo CD on RHACM Hub Cluster (Non RHACM Integrated)](#deploy-argo-cd)
 * [Deployment of RHACM Hub via Argo CD](#deploy-red-hat-advanced-cluster-management-for-kubernetes)
 * [Deployment of Cluster level Argo CD instances to managed RHACM clusters](#deployment-of-argo-cd-to-red-hat-advanced-cluster-management-to-managed-clusters)
+* [Deployment of Namespace level Argo CD instances to managed RHACM clusters](#deployment-of-namespace-level-argo-cd-instances-to-managed-rhacm-clusters)
 
 ### Deployment of Red Hat Advanced Cluster Management Using Argo CD
 
