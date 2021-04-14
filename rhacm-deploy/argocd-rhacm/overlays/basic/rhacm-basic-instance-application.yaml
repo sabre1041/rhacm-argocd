@@ -5,4 +5,4 @@ metadata:
   namespace: argocd
 spec:
   source:
-    path: rhacm-deploy/rhacm-instance/overlays/base
+    path: rhacm-deploy/rhacm-instance/overlays/basic
